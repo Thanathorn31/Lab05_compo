@@ -23,7 +23,9 @@ import {type  Event } from '@/types';
     <!-- 4.2
     <div class="event-card hover:scale-101 hover:shadow-sp"> -->
       <!-- 5 -->
-        <div class="cursor-pointer border border-gray-600 p-4 w-64 mb-6 hover:scale-101 hover:shadow-sp"> 
+        <!-- <div class="cursor-pointer border border-gray-600 p-4 w-64 mb-6 hover:scale-101 hover:shadow-sp">  -->
+          <!-- 6 -->
+           <div class="cursor-pointer border border-gray-600 p-[20px] w-64 mb-[18px] hover:scale-101 hover:shadow-sp">
       <h2>{{ event.title }}</h2>
       <span>@{{ event.time }} on {{ event.date }}</span> <br>
       <span> Category :{{ event.category }} </span><br>
