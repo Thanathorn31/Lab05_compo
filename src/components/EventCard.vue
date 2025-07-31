@@ -42,7 +42,7 @@ import {type  Event } from '@/types';
   justify-content: center;  
   align-items: center;       
 } */
-.event-card {
+/* .event-card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -51,16 +51,16 @@ import {type  Event } from '@/types';
   width: 320px;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
-}
+} */
 /* .event-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 } */
-
+/* 
 .event-link {
   text-decoration: none;
   color: #2c3e50;
-}
+} */
 
 
 </style>

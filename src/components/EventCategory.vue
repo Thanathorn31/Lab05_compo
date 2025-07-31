@@ -13,7 +13,7 @@ defineProps<{
 </template>
 
 <style scoped>
-.EventCategory {
+/* .EventCategory {
   padding: 20px;
   width: 100%;
   max-width: 300px;
@@ -25,5 +25,5 @@ defineProps<{
   margin-bottom: 18px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #1f2937;
-}
+} */
 </style>

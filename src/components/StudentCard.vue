@@ -7,14 +7,14 @@ defineProps<{
 </script>
 
 <template>
-  <div class="student-card">
+   <div class="cursor-pointer border border-gray-600 p-[20px] w-64 mb-[18px] hover:scale-101 hover:shadow-sp">
     <h2>{{ name }} {{ surname }}</h2>
     <p>GPA: {{ gpa }}</p>
   </div>
 </template>
 
 <style scoped>
-.student-card {
+/* .student-card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -29,6 +29,6 @@ defineProps<{
 .student-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-}
+} */
 
 </style>

@@ -1,36 +1,35 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import { storeToRefs } from 'pinia';
+
+const messageStore = useMessageStore();
+
+const { messages } = storeToRefs(messageStore);
 </script>
 
 <template>
-  <!-- <div id="layout"> -->
-    <!-- 3.4 -->
-    <div class="text-center font-sans text-gray-700 antialiased">
-   <header>
-     <div class="wrapper">
-
-        <div id="flashMessage" class="animate-fade" v-if="message">
-          <h4>{{ message }}</h4>
+  <div class="text-center font-sans text-gray-700 antialiased">
+    <header>
+      <div class="wrapper">
+        <div id="flashMessage" class="animate-fade" v-if="messages">
+          <h4>{{ messages }}</h4>
         </div>
-       <!-- <nav>
-         <RouterLink :to="{ name: 'event-list-view' }">Event</RouterLink> |
-         <RouterLink :to="{ name: 'about' }">About</RouterLink> |
-         <RouterLink :to="{ name: 'students' }">Student</RouterLink> -->
-         <!-- 9 -->
-         <nav class="py-6"> <RouterLink :to="{ name: 'event-list-view' }" class="font-bold text-gray-700" exact-active-class="text-green-500">Event</RouterLink> |
+        <nav class="py-6">
+          <RouterLink :to="{ name: 'event-list-view' }" class="font-bold text-gray-700" exact-active-class="text-green-500">Event</RouterLink> |
           <RouterLink :to="{ name: 'about' }" class="font-bold text-gray-700" exact-active-class="text-green-500">About</RouterLink> |
           <RouterLink :to="{ name: 'students' }" class="font-bold text-gray-700" exact-active-class="text-green-500">Student</RouterLink>
         </nav>
-     </div>
-   </header>
-
-
-   <RouterView />
- </div>
+      </div>
+    </header>
+    <RouterView />
+  </div>
 </template>
 
 <style >
-/* #layout {
+
+/*
+#layout {
  font-family: Avenir, Helvetica, Arial, sans-serif;
  -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
@@ -54,5 +53,4 @@ nav a.router-link-exact-active {
 /* h2 {
   font-size: 20px;
 } */
-
 </style>
