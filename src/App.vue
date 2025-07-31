@@ -5,15 +5,15 @@ import { storeToRefs } from 'pinia';
 
 const messageStore = useMessageStore();
 
-const { messages } = storeToRefs(messageStore);
+const { message } = storeToRefs(messageStore);
 </script>
 
 <template>
   <div class="text-center font-sans text-gray-700 antialiased">
     <header>
       <div class="wrapper">
-        <div id="flashMessage" class="animate-fade" v-if="messages">
-          <h4>{{ messages }}</h4>
+        <div id="flashMessage" class="animate-fade" v-if="message">
+          <h4>{{ message }}</h4>
         </div>
         <nav class="py-6">
           <RouterLink :to="{ name: 'event-list-view' }" class="font-bold text-gray-700" exact-active-class="text-green-500">Event</RouterLink> |
