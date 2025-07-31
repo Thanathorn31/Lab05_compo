@@ -1,7 +1,5 @@
-
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue';
-// import  EventCategory from '@/components/EventCategory.vue';
 import {type  Event } from '@/types';
 import { ref, onMounted ,computed,watchEffect} from 'vue';
 import EventService from '@/services/EventService';
@@ -53,32 +51,28 @@ watchEffect(() => {
 
 <template>
    
-  <!-- new element -->
   <h1>Events For Good</h1>
   
-  <!-- <div class="events"> -->
-    <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center">
     <EventCard
-  v-for="event in events"
-  :key="event.id"
-  :event="event" 
-/>
-    <!-- <EventCategory v-for="event in events" :key="event.id" :event="event" /> -->
+      v-for="event in events"
+      :key="event.id"
+      :event="event" 
+    />
   </div>
     
-  
-  <div class="pagination-container">
-    <div class="pagination">
+  <div class="flex flex-col items-center gap-6 mx-auto my-12 max-w-xl">
+    <div class="flex justify-center items-center gap-8">
       <router-link
         id="page-prev"
         :to="{ name: 'event-list-view', query: { page: page - 1, pageSize: pageSize } }"
         rel="prev"
         v-if="page != 1"
-        class="pagination-btn prev-btn">
-        <span class="btn-text">Previous</span>
+        class="inline-flex items-center gap-2 py-[10px] px-4 bg-[#42b983] text-white no-underline rounded-[6px] font-medium text-sm transition-colors duration-200 ease-in-out min-w-[90px] justify-center hover:bg-[#36a374]">
+        <span>Previous</span>
       </router-link>
        
-      <div class="page-info">
+      <div class="text-gray-600 text-sm font-medium px-4">
         <span>Page {{ page }} of {{ Math.ceil(totalEvents / pageSize) }}</span>
       </div>
 
@@ -87,37 +81,44 @@ watchEffect(() => {
         :to="{ name: 'event-list-view', query: { page: page + 1, pageSize: pageSize } }"
         rel="next"
         v-if="hasNextPage"
-        class="pagination-btn next-btn">
-        <span class="btn-text">Next</span>
+        class="inline-flex items-center gap-2 py-[10px] px-4 bg-[#42b983] text-white no-underline rounded-[6px] font-medium text-sm transition-colors duration-200 ease-in-out min-w-[90px] justify-center hover:bg-[#36a374]">
+        <span>Next</span>
       </router-link>
     </div>
       
-    <div class="page-size-controls">
-      <span class="page-size-label">Show:</span>
-      <div class="page-size-options">
+    <div class="flex items-center gap-3 bg-[#f8f9fa] py-3 px-4 rounded-lg border border-[#e9ecef]">
+      <span class="text-[#666] text-sm font-medium">Show:</span>
+      <div class="flex gap-1">
         <router-link
           v-for="size in pageSizeOption"
           :key="size"
           :to="{ name: 'event-list-view', query: { page: 1, pageSize: size } }"
-          :class="{ active: pageSize === size }"
-          class="page-size-option">
+          :class="{ 
+            'bg-[#42b983] text-white border-[#42b983]': pageSize === size,
+            'bg-white text-[#666] border-[#ddd]': pageSize !== size 
+          }"
+          class="inline-flex items-center justify-center min-w-8 h-8 px-2 no-underline rounded text-[13px] font-medium transition-all duration-200 ease-in-out
+                 hover:bg-[#f0f0f0] hover:border-[#42b983] hover:text-[#42b983]">
           {{ size }}
         </router-link>
       </div>
-      <span class="page-size-label">items</span>
+      <span class="text-[#666] text-sm font-medium">items</span>
     </div>
   </div>
     
 </template>
 
 <style scoped>
+/* คุณสามารถลบ CSS ที่เคยมีในส่วนนี้ออกได้ทั้งหมด เนื่องจากตอนนี้ได้แปลงเป็น Tailwind แล้ว */
+/* หรือหากต้องการเก็บไว้เป็นแนวทาง ให้คอมเมนต์ทั้งบล็อก */
+
 /* .evens{
   display: flex;
   justify-content: center;
   align-items: center;
 } */
 
-.pagination-container {
+/* .pagination-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,5 +217,5 @@ watchEffect(() => {
   background-color: #42b983;
   color: white;
   border-color: #42b983;
-}
+} */
 </style>
