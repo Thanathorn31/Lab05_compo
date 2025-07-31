@@ -19,7 +19,11 @@ import {type  Event } from '@/types';
 <template>
   <RouterLink class="event-link" :to="{ name: 'event-detail-view', params: { id: event.id } }">
     <div class="container">
-  <div class="event-card">
+  <!-- <div class="event-card"> -->
+    <!-- 4.2
+    <div class="event-card hover:scale-101 hover:shadow-sp"> -->
+      <!-- 5 -->
+        <div class="cursor-pointer border border-gray-600 p-4 w-64 mb-6 hover:scale-101 hover:shadow-sp"> 
       <h2>{{ event.title }}</h2>
       <span>@{{ event.time }} on {{ event.date }}</span> <br>
       <span> Category :{{ event.category }} </span><br>
@@ -30,28 +34,26 @@ import {type  Event } from '@/types';
 </template>
 
 <style scoped>
-
-.container{
+/* 4.2 remove css */
+/* .container{
   display: flex;
   justify-content: center;  
   align-items: center;       
-}
+} */
 .event-card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
   padding: 20px;
   margin-bottom: 20px;
   width: 320px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-family: 'Segoe UI', sans-serif;
 }
-.event-card:hover {
+/* .event-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-}
+} */
 
 .event-link {
   text-decoration: none;
